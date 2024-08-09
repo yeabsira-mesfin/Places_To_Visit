@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import Error from "./Error.jsx";
 import Places from "./Places.jsx";
 import { sortPlacesByDistance } from "../loc.js";
+// import { fetchAvailablePlaces } from "../http.js"
 
-const places = localStorage.getItem("places");
+// const places = localStorage.getItem("places");
 
 export default function AvailablePlaces({ onSelectPlace }) {
   const [availablePlaces, setAvailablePlaces] = useState([]);
