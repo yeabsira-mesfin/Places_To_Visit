@@ -20,3 +20,4 @@ export default function Places({ title, places, fallbackText, onSelectPlace,isLo
     </section>
   );
 }
+// Don't forget to add skeleton when loading instead of fallback text.
