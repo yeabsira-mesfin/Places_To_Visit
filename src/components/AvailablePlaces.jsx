@@ -5,6 +5,7 @@ const places = localStorage.getItem('places');
 
 export default function AvailablePlaces({ onSelectPlace }) {
   const [availablePlaces,setAvailablePlaces] = useState([]);
+  const [isLoading,setisLoading] = useState(true);
 
   useEffect(()=>{
 
@@ -12,6 +13,8 @@ export default function AvailablePlaces({ onSelectPlace }) {
       const response = await  fetch('http://localhost:3000/places');
       const resData = await response.json();
       setAvailablePlaces(resData.places)
+      setisLoading(false)
+
     }
     fetchPlaces();
     
@@ -28,6 +31,8 @@ export default function AvailablePlaces({ onSelectPlace }) {
     <Places
       title="Available Places"
       places={availablePlaces}
+      isLoading={isLoading}
+      loadingText={'Fetching data...'}
       fallbackText="No places available."
       onSelectPlace={onSelectPlace}
     />
